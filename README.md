@@ -1,6 +1,6 @@
 # AI Email Automation Agent using CrewAI 📧🤖
 
-This project deploys a team of autonomous AI agents built with the **CrewAI** framework to automatically read, analyze, and organize your Gmail inbox. The agents work together to distinguish important emails from promotional content and newsletters, moving the important ones to a designated label.
+This project deploys a team of autonomous AI agents built with the **CrewAI** framework to automatically read, analyze, and organize your Gmail inbox. The agents work together to distinguish non-important emails from promotional content and newsletters, moving the non-important ones to a designated label.
 
 
 
@@ -10,7 +10,7 @@ This project deploys a team of autonomous AI agents built with the **CrewAI** fr
 
 -   **Automated Email Analysis:** The system fetches unread emails from your Gmail inbox for processing.
 -   **Intelligent Filtering:** An "Analyst" agent uses AI to analyze email snippets and senders to identify which messages are important and which are not.
--   **Automatic Organization:** A "Specialist" agent takes the list of important emails and moves them to a custom Gmail label (e.g., `IMPORTANT_EMAILS`), cleaning up your main inbox.
+-   **Automatic Organization:** A "Specialist" agent takes the list of non-important emails and moves them to a custom Gmail label (e.g., `From Marketing Lists`), cleaning up your main inbox.
 -   **Secure Gmail Integration:** Utilizes the official Google Gmail API with OAuth 2.0 for secure and authorized access to your account.
 
 ---
@@ -19,8 +19,8 @@ This project deploys a team of autonomous AI agents built with the **CrewAI** fr
 
 The project operates using a two-agent crew that executes tasks sequentially:
 
-1.  **Analyst Agent:** Its primary task is to go through a list of unread emails. It analyzes the content and metadata (like the sender) to create a definitive list of emails that are deemed "important."
-2.  **Specialist Agent:** This agent receives the list of important emails from the Analyst. It then uses a custom `move_email` tool to interact with the Gmail API, moving each identified email from the inbox to the `IMPORTANT_EMAILS` label.
+1.  **Analyst Agent:** Its primary task is to go through a list of unread emails. It analyzes the content and metadata (like the sender) to create a definitive list of emails that are deemed "non-important."
+2.  **Specialist Agent:** This agent receives the list of non-important emails from the Analyst. It then uses a custom `move_email` tool to interact with the Gmail API, moving each identified email from the inbox to the `From Marketing Lists` label.
 
 This multi-agent approach allows for a clear separation of concerns, making the system easy to understand and extend.
 
@@ -98,4 +98,4 @@ With the setup complete, you can now run the email sorter.
     ```
 2.  **First-Time Authorization:** The first time you run the script, a new tab will open in your web browser asking you to log in to your Google account and grant permission for the app to access your Gmail.
 3.  After you approve, a `token.json` file will be created in the project directory. This file stores your authorization so you won't have to log in every time.
-4.  **Watch the Magic!** The agents will now start their work. You will see their progress printed in the terminal. Once they are finished, check your Gmail for the new `IMPORTANT_EMAILS` label!
+4.  **Watch the Magic!** The agents will now start their work. You will see their progress printed in the terminal. Once they are finished, check your Gmail for the new `From Marketing Lists` label!
